@@ -115,17 +115,18 @@ export default function Form1(props: formDataI | any) {
       {/* Buttons */}
       <div className="flex justify-between items-center mt-6">
         <button
-          type="button"
-          onClick={props.handlePrevious}
           className="flex items-center text-gray-400 cursor-not-allowed"
+          type="button"
+          disabled
         >
-          <span className="mr-2">&#9664;</span>Prev
+          <span className="mr-2">◀</span>Prev
         </button>
         <button
-          type="submit"
           className="flex items-center bg-black text-white p-2 rounded-full px-6"
+          type="submit"
+          onClick={handleNext}
         >
-          Next <span className="ml-2">&#9654;</span>
+          Next <span className="ml-2">▶</span>
         </button>
       </div>
     </form>

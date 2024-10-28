@@ -16,13 +16,13 @@ export default function CompleteProfile() {
     projectLimit: "0-100000",
   });
 
+  console.log(setStep);
   //testing api handler for fetch tag
   useEffect(() => {
     async function fetchTags() {
       try {
         const res = await fetch("/api/fetch-tag", { method: "GET" });
         const data = await res.json();
-        console.log(data);
         setAllTags(data);
       } catch (error) {
         console.error("error fetching allTags", error);
@@ -40,7 +40,7 @@ export default function CompleteProfile() {
   };
 
   // Handler for genre selection in the second form
-  const handleGenreChange = (tag: string) => {
+  const handleTagChange = (tag: string) => {
     setFormData((prevData) => {
       const newTag = prevData.tags.includes(tag)
         ? prevData.tags.filter((t) => t !== tag)
@@ -81,8 +81,9 @@ export default function CompleteProfile() {
         <Form2
           allTags={allTags}
           formData={formData}
-          handleGenreChange={handleGenreChange}
+          handleGenreChange={handleTagChange}
           setFormData={setFormData}
+          setStep={setStep}
         />
       )}
     </div>
